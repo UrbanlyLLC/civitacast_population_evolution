@@ -13,7 +13,7 @@ export type Ethnicity =
     | "Asian"
     | "Melaa"
     | "Other Ethnicity"
-    | "Three or more ethnic";
+    | "Three or more ethnic groups";
 
 // Gender
 export type Gender = "M" | "F";
