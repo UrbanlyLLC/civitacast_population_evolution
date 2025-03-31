@@ -1,11 +1,9 @@
-// Age groups
 export type Age = 
     | "Under 15 years"
     | "15-29 years"
     | "30-64 years"
     | "65 and over";
 
-// Ethnicities
 export type Ethnicity = 
     | "European"
     | "Māori"
@@ -15,10 +13,8 @@ export type Ethnicity =
     | "Other Ethnicity"
     | "Three or more ethnic groups";
 
-// Gender
 export type Gender = "M" | "F";
 
-// Income brackets
 export type Income =
     | "$20,000 or less"
     | "$20,001-$30,000"
@@ -28,7 +24,6 @@ export type Income =
     | "$100,001-$150,000"
     | "$150,001 or more";
 
-// Family types
 export type FamilyType =
     | "Couple only"
     | "Couple with child(ren)"

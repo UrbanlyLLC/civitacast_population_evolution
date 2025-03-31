@@ -5,7 +5,6 @@ import express from "express";
 
 const populationRouter = express.Router();
 
-// Error message constants
 const ERROR_MISSING_PARAMS = "Missing required parameters";
 const ERROR_EVOLUTION_FAILED = "Error evolving population";
 
