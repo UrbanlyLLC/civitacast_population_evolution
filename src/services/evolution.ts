@@ -2,10 +2,30 @@ import { Household, Person, Age } from "../models/household";
 
 const ageGroupsArray: Age[] = ["Under 15 years", "15-29 years", "30-64 years", "65 and over"];
 
-/**
- * Evolves a person to the next age group or possibly returns null if the person dies.
- * @throws Error if the person has an invalid age group
- */
+export function evolveHouseholdsOverYears(households: Household[], initialPopulationYear: any, year: any) {
+    let evolvedHouseholds = households;
+
+    for (let currentYear = initialPopulationYear; currentYear < year; currentYear++) {
+        evolvedHouseholds = evolvePopulationOneYear(evolvedHouseholds);
+    }
+    return evolvedHouseholds;
+}
+
+function evolvePopulationOneYear(households: Household[]): Household[] {
+    return households
+        .map((household) => {
+            const evolvedPersons = household.persons
+                .map(evolvePersonOneYear)
+                .filter((p): p is Person => p !== null);
+
+            return {
+                ...household,
+                persons: evolvedPersons,
+            };
+        })
+        .filter((household) => household.persons.length > 0);
+}
+
 function evolvePersonOneYear(person: Person): Person | null {
     if (isDeceased(person)) {
         return null;
@@ -32,17 +52,3 @@ function isDeceased(person: Person): Boolean {
     return Math.random() < deathRate;
 }
 
-export function evolvePopulationOneYear(households: Household[]): Household[] {
-    return households
-        .map((household) => {
-            const evolvedPersons = household.persons
-                .map(evolvePersonOneYear)
-                .filter((p): p is Person => p !== null);
-
-            return {
-                ...household,
-                persons: evolvedPersons,
-            };
-        })
-        .filter((household) => household.persons.length > 0);
-}

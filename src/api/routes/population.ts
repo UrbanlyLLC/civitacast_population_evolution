@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { Household } from "../../models/household";
-import { evolvePopulationOneYear } from "../../services/evolution";
+import { evolveHouseholdsOverYears } from "../../services/evolution";
 import express from "express";
 
 const populationRouter = express.Router();
@@ -16,11 +16,7 @@ populationRouter.post("/evolve", (req: Request, res: Response) => {
     }
     try {
         const households: Household[] = initialPopulation;
-        let evolvedHouseholds = households;
-
-        for (let currentYear = initialPopulationYear; currentYear < year; currentYear++) {
-            evolvedHouseholds = evolvePopulationOneYear(evolvedHouseholds);
-        }
+        let evolvedHouseholds = evolveHouseholdsOverYears(households, initialPopulationYear, year);
         res.json(evolvedHouseholds);
     } catch (error) {
         res.status(500).json({ error: ERROR_EVOLUTION_FAILED });
