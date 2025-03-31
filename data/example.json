@@ -1,0 +1,45 @@
+{
+    "initialPopulation": [
+        {
+            "household_id": "1",
+            "family_type": "Couple with child(ren)",
+            "income": "$100,001-$150,000",
+            "building_id": 214854.0,
+            "area": "Point Chevalier East",
+            "persons": [
+                {
+                    "person_id": "1",
+                    "age": "30-64 years",
+                    "gender": "F",
+                    "ethnicity": "European/Māori"
+                },
+                {
+                    "person_id": "2",
+                    "age": "30-64 years",
+                    "gender": "M",
+                    "ethnicity": "European"
+                },
+                {
+                    "person_id": "3",
+                    "age": "Under 15 years",
+                    "gender": "M",
+                    "ethnicity": "European"
+                },
+                {
+                    "person_id": "4",
+                    "age": "Under 15 years",
+                    "gender": "M",
+                    "ethnicity": "European"
+                },
+                {
+                    "person_id": "5",
+                    "age": "Under 15 years",
+                    "gender": "F",
+                    "ethnicity": "European"
+                }
+            ]
+        }
+    ],
+    "year": 2030,
+    "initialPopulationYear": 2025
+}
